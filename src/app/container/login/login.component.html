@@ -1,1 +1,9 @@
-<p>login.component works!</p>
+<div>
+    <form (ngSubmit)="Submit()">
+        <h1>Login</h1>
+        <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Enter your email">
+        <input [(ngModel)]="LoginPassword" type="password" name="LoginPassword" placeholder="Enter your password">
+        <button matButton="outlined" type="submit">Login</button>
+    </form>
+
+</div>
