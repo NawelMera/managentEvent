@@ -1,1 +1,7 @@
-<p>subscribe.component works!</p>
+<div>
+<form (ngSubmit)="Submit()">
+    <h1>Subscribe to our newsletter</h1>
+    <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Enter your email">
+    <button type="submit">Subscribe</button>
+</form>
+</div>
