@@ -16,10 +16,11 @@
     "module": "preserve",
     "baseUrl": "src/app",
     "paths": {
-      "@models/*": ["Models/*"],
-      "@components/*": ["Components/*"],
-      "@services/*": ["Services/*"],
-      "@ressources/*": ["Ressources/*"]
+      "@model/*": ["model/*"],
+      "@components/*": ["components/*"],
+      "@container/*": ["container/*"],
+      "@service/*": ["service/*"],
+      "@ressources/*": ["ressources/*"]
     }
   },
   "angularCompilerOptions": {

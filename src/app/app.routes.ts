@@ -15,6 +15,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent }, 
   { path: 'settings', component: SettingsComponent }, 
   { path: 'subscribe', component: SubscribeComponent }, 
-  { path: 'update-event', component: UpdateEventComponent }, 
-  { path: 'create-event', component: CreateEventComponent }, 
+  { path: 'event/update', component: UpdateEventComponent }, 
+  { path: 'event/create', component: CreateEventComponent }, 
   ];
