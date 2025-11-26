@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 //import du service subscribe
-import { Subscribe } from '../../service/subscribe/subscribe.service';
 import { Router } from '@angular/router';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @Component({
@@ -13,20 +12,12 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 export class SubscribeComponent {
   
   subscribeEmail: string = "";
-  subscribe = new Subscribe();
+  constructor(private router : Router) {}
   Submit()
   {
-    console.log("Email: " + this.subscribeEmail);
-    console.log(this.subscribe.isValidEmail(this.subscribeEmail));
-    if(this.subscribe.isValidEmail(this.subscribeEmail))
-      alert("Merci pour votre souscription");
-    else
-      alert("l'email saisi n'est pas valide");
+    this.redirectToHome();
   }
-
-  constructor(private router : Router) {}
-
-  redirectToHome() {
+redirectToHome() {
     this.router.navigate(['']);
   }
 }
