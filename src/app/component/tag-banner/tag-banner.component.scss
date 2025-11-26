@@ -1,0 +1,31 @@
+.tag-banner {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 20px 3%;
+
+    margin-top: 4vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tag-banner div:first-child {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 10px;
+    font-size: 18px; 
+}
+
+.tag-banner div:first-child img {
+    padding: 5px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.tag-banner img:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}

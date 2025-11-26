@@ -18,6 +18,10 @@ export class SubscribeComponent {
   {
     console.log("Email: " + this.subscribeEmail);
     console.log(this.subscribe.isValidEmail(this.subscribeEmail));
+    if(this.subscribe.isValidEmail(this.subscribeEmail))
+      alert("Merci pour votre souscription");
+    else
+      alert("l'email saisi n'est pas valide");
   }
 
   constructor(private router : Router) {}

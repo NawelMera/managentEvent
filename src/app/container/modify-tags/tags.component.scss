@@ -1,4 +1,33 @@
 .tags-page {
-    background-color: white;
     margin: 20px 50px;
+}
+
+.tags-add-input {
+    display: flex;
+    gap: 10px;
+
+    width: 100%;
+}
+.tags-add-input input {
+    flex: 1;
+    padding: 10px;
+    border: gray 1px solid;
+    border-radius: 8px;
+}
+
+.tags-add-input button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+}
+
+.tags-page h2 {
+    margin-top: 30px;
+}
+
+.tags-page h4 {
+    margin-bottom: 10px;
+    color: gray;
 }
