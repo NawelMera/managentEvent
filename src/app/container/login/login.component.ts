@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-login.component',
@@ -9,16 +10,17 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  LoginPassword: string = "";
-  loginEmail: string = "";
-  Submit()
-  {
-    console.log("Email: " + this.loginEmail + " Password: " + this.LoginPassword);
-  }
-  // constructeur Rooter
-  constructor(private router : Router) {}
+  loginEmail: string = '';
+  loginPassword: string = '';
 
-  redirectToHome() {
+  constructor(private router: Router, private authService: AuthService) {}
+
+  submit() {
+    console.log('Email: ' + this.loginEmail + ' Password: ' + this.loginPassword);
+    this.authService.login(); 
+    this.router.navigate(['']); 
+  }
+  redirectToHome(){
     this.router.navigate(['']);
   }
 }

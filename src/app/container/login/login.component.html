@@ -4,11 +4,11 @@
         <span>ACADEMIA</span>
     </div>
     <div class="login-div">
-        <form (ngSubmit)="Submit()">
+        <form (ngSubmit)="submit()">
             <p>Email</p>
             <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Taper ici">
             <p>Mot de passe</p>
-            <input [(ngModel)]="LoginPassword" type="password" name="LoginPassword" placeholder="Taper ici">
+            <input [(ngModel)]="loginPassword" type="password" name="loginPassword" placeholder="Taper ici">
             <br/>
             <button type="submit">Login</button>
         </form>
