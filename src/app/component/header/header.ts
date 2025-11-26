@@ -16,5 +16,8 @@ export class Header {
   redirectToLogin(){
     this.router.navigate(['login']);
   }
+  redirectToHome() {
+    this.router.navigate(['home']);
+  }
 
 }
