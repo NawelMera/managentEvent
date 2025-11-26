@@ -240,7 +240,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /user:     
+  /user: 
     post:
       tags:
         - user
@@ -341,6 +341,39 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+  /user/login: 
+      post: 
+        tags: 
+          - user 
+        summary: User login.
+        description: Authenticate a user with username and password.
+        operationId: loginUser
+        requestBody: 
+          description: User credentials
+          content: 
+            application/json: 
+              schema: 
+                type: object
+                properties: 
+                  username: 
+                    type: string
+                  password: 
+                    type: string
+        responses: 
+          '200': 
+            description: Successful login
+            content: 
+              application/json: 
+                schema: 
+                  $ref: '#/components/schemas/user'
+          '400': 
+            description: Invalid username/password supplied
+          default:
+            description: Unexpected error
+            content: 
+              application/json: 
+                schema: 
+                  $ref: "#/components/schemas/Error"    
   /type:
     post:
       tags:
