@@ -28,6 +28,16 @@
     flex-direction: row;
 }
 
+.header > :first-child img {
+    height: 4vh;
+    margin-right: 0.5vw;
+}
+
+.header > :first-child div {
+    font-size: 2.5vh;
+    margin: 0;
+}
+
 .header > :last-child {
     padding-right: 2%;
     padding-left: 0;
