@@ -1,7 +1,9 @@
-<div>
+<div class="subscribe-div">
 <form (ngSubmit)="Submit()">
-    <h1>Subscribe to our newsletter</h1>
+    <p>Email</p>
     <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Enter your email">
-    <button type="submit">Subscribe</button>
+    <br/> 
+    <button type="submit">Souscrire</button>
 </form>
+<p (click)="redirectToHome()">Retour à l'accueil</p>
 </div>
