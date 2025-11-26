@@ -3,9 +3,10 @@ import { FormsModule } from '@angular/forms';
 //import du service subscribe
 import { Subscribe } from '../../service/subscribe/subscribe.service';
 import { Router } from '@angular/router';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-subscribe.component',
-  imports: [FormsModule],
+  imports: [FormsModule, MatSlideToggleModule],
   templateUrl: './subscribe.component.html',
   styleUrl: './subscribe.component.scss',
 })
