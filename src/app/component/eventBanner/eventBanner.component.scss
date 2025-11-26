@@ -1,0 +1,29 @@
+.home-event-banner {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.home-event-title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.home-event-description {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.home-event-tag {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 4px 8px;
+}

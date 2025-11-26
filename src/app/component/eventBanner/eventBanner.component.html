@@ -1,0 +1,18 @@
+<div class="home-event-banner">
+    <div class="home-event-title">
+        <div>
+            {{event.name}}
+        </div>
+        <div style="color: gray;">
+            {{event.date.toLocaleDateString()}}
+        </div>
+    </div>
+    <div class="home-event-description">
+        {{event.description}}
+    </div>
+    @if (typeTag != '') {
+        <div class="home-event-tag">
+            {{typeTag}}
+        </div>
+    }
+</div>

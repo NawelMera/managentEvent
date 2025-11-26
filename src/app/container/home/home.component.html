@@ -20,6 +20,11 @@
             <span>Evenements à venir</span>
             <!-- Nb Resultats (En fonction du back)-->
         </div>
+        <div class="home-events-list">
+            @for (event of events; track event) {
+                <app-event-banner [event]="event"/>
+            }
+        </div>
     </div>
         <!--Insert Here events component-->
 </div>
