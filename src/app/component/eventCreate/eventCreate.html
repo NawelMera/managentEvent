@@ -15,11 +15,10 @@
         <div class="mb-3">
             <label for="eventType" class="form-label">Type d'événement*</label>
             <select [(ngModel)]="eventType" class="form-select" id="eventType" name="eventType" required>
-                <option selected>Choisir le type d'événement</option>
-                <option value="conference">Conférence</option>
-                <option value="workshop">Atelier</option>
-                <option value="meetup">Rencontre</option>
-            </select>
+                @for (type of allTypes ; track type) {
+                    <option value="{{type.id}}">{{type.name}}</option>
+                }
+            </select>   
         </div>
         <button type="submit" class="btn bg-black text-white w-100">Créer l'événement</button>
     </form>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TypeService } from 'core/services';
 import { EventService } from 'core/services';
 import { Event } from 'core/services/model/event';
+import { Type } from 'core/services/model/type';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,20 @@ export class EventCreate {
   eventDescription: string = '';
   eventType: number = 0;
 
-  constructor(private eventService: EventService, private typeService: TypeService) {}
+  allTypes: Type[] = [];
+
+  constructor(private eventService: EventService, private typeService: TypeService) {
+    this.getTypes();
+    console.log('Types fetched:', this.allTypes);
+  }
+
+  getTypes() {
+    return this.typeService.getType().subscribe(response => {
+      for (let type of response) {
+        this.allTypes.push(type);
+      }
+    });
+  }
 
   createEvent() {
     const eventData : Event = {
@@ -34,8 +48,6 @@ export class EventCreate {
       description: this.eventDescription,
       idType: this.eventType
     };
-
-    console.log('Date selected:', this.eventDate);
     
     return this.eventService.createEvent(eventData).subscribe(response => {
       console.log('Event created successfully', response);
