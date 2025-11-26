@@ -7,17 +7,23 @@ import { SubscribeComponent } from 'container/subscribe/subscribe.component';
 import { UpdateEventComponent } from 'container/update-event/update-event.component';
 import { CreateEventComponent } from 'container/create-event/create-event.component';
 import { TagsComponent } from '@container/modify-tags/tags.component';
+import { AuthGuard } from '../app/auth.guard';
 
 
 
 export const routes: Routes = [ 
-  { path: '', component: HomeComponent },  // route par défaut
-  { path: 'home', component: HomeComponent },  // route par défaut
-  { path: 'event', component: EventsComponent }, 
-  { path: 'login', component: LoginComponent }, 
-  { path: 'settings', component: SettingsComponent }, 
-  { path: 'subscribe', component: SubscribeComponent }, 
-  { path: 'event/update', component: UpdateEventComponent }, 
-  { path: 'event/create', component: CreateEventComponent }, 
-  { path: 'tags', component: TagsComponent },
+  { path: '', component: HomeComponent },
+
+  { path: 'home', component: HomeComponent },
+  { path: 'event', component: EventsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'subscribe', component: SubscribeComponent },
+
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'event/update', component: UpdateEventComponent, canActivate: [AuthGuard] },
+  { path: 'event/create', component: CreateEventComponent, canActivate: [AuthGuard] },
+  { path: 'tags', component: TagsComponent, canActivate: [AuthGuard] },
+
+
+  { path: '**', redirectTo: '' }
   ];

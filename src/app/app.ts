@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from 'component/header/header';
+import { AuthService } from './service/auth/auth.service';
 import { EventCreate } from 'component/eventCreate/eventCreate';
 
 
@@ -11,5 +12,8 @@ import { EventCreate } from 'component/eventCreate/eventCreate';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('managentEvent');
+  constructor(public authService: AuthService) {}
+  get checkConnexion() {
+    return this.authService.connexion();
+  }
 }
