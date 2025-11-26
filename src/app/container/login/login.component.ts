@@ -14,15 +14,21 @@ import { Login } from '@service/login/login';
 })
 
 export class LoginComponent {
+ 
+
   constructor(private router: Router, private authService: AuthService) {}
   loginPassword: string = "";
   loginEmail: string = "";
   login = new Login();
-
-  submit() {
+  submit()
+  {
+    if(!this.login.isValidLoginForm(this.loginEmail, this.loginPassword))
+    {
+      alert("Email ou mot de passe incorrect");
+    }
     console.log('Email: ' + this.loginEmail + ' Password: ' + this.loginPassword);
     this.authService.login(); 
-    this.router.navigate(['']); 
+    this.router.navigate(['']);
   }
   redirectToHome(){
     this.router.navigate(['']);
