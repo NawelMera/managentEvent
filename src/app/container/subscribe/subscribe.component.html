@@ -5,10 +5,9 @@
     </div>
     <div class="subscribe-div">
         <form (ngSubmit)="Submit()">
-            <span>Email</span>
+            <div>Email</div>
             <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Taper ici">
-            <br/> 
-            <button type="submit">Souscrire</button>
+            <button type="submit">Se souscrire</button>
         </form>
     </div>
     <p class="subscribe-p" (click)="redirectToHome()">Retour à l'accueil</p>
