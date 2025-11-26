@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TypeOfEvent } from '@model/typeOfEvent';
-import { TypeService } from 'core/api';
-import { EventService } from 'core/api';
-import { Event } from 'core/api/model/event';
+import { TypeService } from 'core/services';
+import { EventService } from 'core/services';
+import { Event } from 'core/services/model/event';
 
 @Injectable({
   providedIn: 'root'

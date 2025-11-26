@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { EventCreate } from 'component/eventCreate/eventCreate';
 
 
 @Component({
   selector: 'app-create-event.component',
-  imports: [MatButtonModule],
+  imports: [EventCreate],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.scss',
 })
