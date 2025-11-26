@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth/auth.service';
+
 import { Login } from '@service/login/login';
+
 
 @Component({
   selector: 'app-login.component',
@@ -11,6 +14,10 @@ import { Login } from '@service/login/login';
 })
 
 export class LoginComponent {
+  loginEmail: string = '';
+  loginPassword: string = '';
+
+  constructor(private router: Router, private authService: AuthService) {}
   LoginPassword: string = "";
   loginEmail: string = "";
   login = new Login();
@@ -27,7 +34,12 @@ export class LoginComponent {
   // constructeur Rooter
   constructor(private router : Router) {}
 
-  redirectToHome() {
+  submit() {
+    console.log('Email: ' + this.loginEmail + ' Password: ' + this.loginPassword);
+    this.authService.login(); 
+    this.router.navigate(['']); 
+  }
+  redirectToHome(){
     this.router.navigate(['']);
   }
 }
