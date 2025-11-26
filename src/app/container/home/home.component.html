@@ -4,8 +4,11 @@
             <button>Filtrer</button>
             <input type="date" name="date" placeholder="Start Date">
             <input type="date" name="date" placeholder="End Date">
-            <select>
+            <select name="typeEvent">
                 <option selected disabled>Type of Event</option>
+                @for (type of JSONTypeOfEvents; track type.id){
+                    <option>{{type.name}}</option>
+                }
             </select>
         </form>
     </div>
