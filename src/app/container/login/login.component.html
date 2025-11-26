@@ -1,11 +1,17 @@
-<div class="login-div">
-    <form (ngSubmit)="Submit()">
-        <p>Email</p>
-        <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Enter your email">
-        <p>Mot de passe</p>
-        <input [(ngModel)]="LoginPassword" type="password" name="LoginPassword" placeholder="Enter your password">
-        <br/>
-        <button type="submit">Login</button>
-    </form>
-  <p (click)="redirectToHome()">Retour à l'accueil</p>
+<div class="container">
+    <div class="app-logo">
+        <img src="assets/academia_icon.png" alt="Academia">
+        <span>ACADEMIA</span>
+    </div>
+    <div class="login-div">
+        <form (ngSubmit)="Submit()">
+            <p>Email</p>
+            <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Taper ici">
+            <p>Mot de passe</p>
+            <input [(ngModel)]="LoginPassword" type="password" name="LoginPassword" placeholder="Taper ici">
+            <br/>
+            <button type="submit">Login</button>
+        </form>
+    <p class="login-p" (click)="redirectToHome()">Retour à l'accueil</p>
+    </div>
 </div>
