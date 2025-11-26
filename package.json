@@ -6,7 +6,8 @@
     "start": "concurrently \"ng serve\" \"prism mock .\\academy.swagger.yaml\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api-gen": "openapi-generator-cli generate -g typescript-angular -i academy.swagger.yaml -o src/app/core/api -p ngVersion=10"
   },
   "prettier": {
     "printWidth": 100,
@@ -31,6 +32,7 @@
     "@angular/material": "^20.2.12",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@openapitools/openapi-generator-cli": "^2.25.2",
     "concurrently": "^9.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
