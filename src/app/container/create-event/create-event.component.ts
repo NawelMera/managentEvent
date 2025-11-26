@@ -1,6 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Event, EventService, Type, TypeService } from 'core/services';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class CreateEventComponent {
 
   allTypes: Type[] = [];
 
-  constructor(private eventService: EventService, private typeService: TypeService) {
+  constructor(private router: Router, private eventService: EventService, private typeService: TypeService) {
     this.getTypes();
     console.log('Types fetched:', this.allTypes);
   }
@@ -48,4 +49,8 @@ export class CreateEventComponent {
       console.log('Event created successfully', response);
     });
   } 
+
+  goToTags() {
+    this.router.navigate(['tags']);
+  }
 }
