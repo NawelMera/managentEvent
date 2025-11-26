@@ -1,6 +1,6 @@
 import { Component, Injectable, Input } from "@angular/core";
 import { Event } from "@model/event";
-import { TypeService } from "core/api";
+import { TypeService } from "core/services";
 
 @Injectable({
   providedIn: 'root'

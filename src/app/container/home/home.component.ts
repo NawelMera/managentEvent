@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { Event } from '@model/event';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
-import { EventService } from 'core/api';
+import { EventService } from 'core/services';
 import { FormsModule } from '@angular/forms';
 
 @Injectable({
