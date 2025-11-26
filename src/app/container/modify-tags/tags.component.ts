@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { TagBanner } from 'component/tag-banner/tag-banner.component';
 
-import { Header } from 'component/header/header';
+
 
 @Component({
   selector: 'app-tags.component',
-  imports: [Header],
+  imports: [TagBanner],
   templateUrl: './tags.component.html',
   styleUrl: './tags.component.scss',
 })
