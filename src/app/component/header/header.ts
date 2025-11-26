@@ -16,5 +16,7 @@ export class Header {
   redirectToLogin(){
     this.router.navigate(['login']);
   }
-
+  redirectToRegister(){
+    this.router.navigate(['subscribe']);
+  }
 }

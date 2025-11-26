@@ -14,30 +14,21 @@ import { Login } from '@service/login/login';
 })
 
 export class LoginComponent {
-  loginEmail: string = '';
-  loginPassword: string = '';
+ 
 
   constructor(private router: Router, private authService: AuthService) {}
-  LoginPassword: string = "";
+  loginPassword: string = "";
   loginEmail: string = "";
   login = new Login();
-  Submit()
+  submit()
   {
-    console.log("Email: " + this.loginEmail + " Password: " + this.LoginPassword);
-    //verification de la syntaxe de l'adresse email
-    console.log(this.login.isValidLoginForm(this.loginEmail, this.LoginPassword));
-    if(!this.login.isValidLoginForm(this.loginEmail, this.LoginPassword))
+    if(!this.login.isValidLoginForm(this.loginEmail, this.loginPassword))
     {
       alert("Email ou mot de passe incorrect");
     }
-  }
-  // constructeur Rooter
-  constructor(private router : Router) {}
-
-  submit() {
     console.log('Email: ' + this.loginEmail + ' Password: ' + this.loginPassword);
     this.authService.login(); 
-    this.router.navigate(['']); 
+    this.router.navigate(['']);
   }
   redirectToHome(){
     this.router.navigate(['']);
