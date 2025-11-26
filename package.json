@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng serve\" \"prism mock .\\academy.swagger.yaml\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api-gen": "openapi-generator-cli generate -g typescript-angular -i academy.swagger.yaml -o src/app/core/api -p ngVersion=10"
   },
   "prettier": {
     "printWidth": 100,
@@ -33,6 +34,9 @@
     "@angular/router": "^20.3.0",
     "@tailwindcss/postcss": "^4.1.17",
     "postcss": "^8.5.6",
+    "bootstrap": "^5.3.8",
+    "@openapitools/openapi-generator-cli": "^2.25.2",
+    "concurrently": "^9.2.1",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.17",
     "tslib": "^2.3.0",
