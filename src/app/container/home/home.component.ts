@@ -3,6 +3,7 @@ import { Event } from '@model/event';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
 import { EventService, TypeService } from 'core/services';
 import { FormsModule } from '@angular/forms';
+import { TypeOfEvent } from '@model/typeOfEvent';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,48 @@ import { FormsModule } from '@angular/forms';
 
 export class HomeComponent {
   events: Event[] = [];
+  shownEvents: Event[] = [];
+  typeOfEvents : TypeOfEvent[] = [];  
+
+  searchText: string = '';
+  dateFrom: Date | null = null;
+  dateTo: Date | null = null;
+  searchType: string = "N'importe quel type";
+  
 
   constructor(private eventService: EventService, private typeService: TypeService) {
     this.getEvents();
     this.getTypeOfEvents();
-    console.log(this.JSONTypeOfEvents);
+    this.filter()
+  }
+
+  filter() {
+    this.shownEvents = this.events;
+    // console.log(this.dateFrom);
+    // console.log(this.dateTo);
+
+    if (this.searchText.trim() !== '') {
+      this.shownEvents = this.events.filter(event =>
+        event.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        event.description.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+
+    if (this.searchType !== "N'importe quel type") {
+      this.shownEvents = this.shownEvents.filter(event => {
+        const eventType = this.typeOfEvents.find(type => type.id === event.idType);
+        return eventType ? eventType.name === this.searchType : false;
+      });
+    }
+
+    if (this.dateFrom) {
+      const newDateFrom = new Date(this.dateFrom!);
+      this.shownEvents = this.shownEvents.filter(event => event.date >= newDateFrom);
+    }
+    if (this.dateTo) {
+      const newDateTo = new Date(this.dateTo!);
+      this.shownEvents = this.shownEvents.filter(event => event.date <= newDateTo);
+    }
   }
 
   getEvents() {
@@ -48,17 +86,18 @@ export class HomeComponent {
   getTypeOfEvents()
   {
     return this.typeService.getType().subscribe(response => {
-      console.log(response);
       for (let type of response) {
-        if(!type.id || !type.name) {
+        if(!type.id || !type.name || !type.description)
           continue;
-        }
-        this.JSONTypeOfEvents.push({id: type.id, name: type.name});
+
+        this.typeOfEvents.push({
+          id: type.id, 
+          name: type.name,
+          description: type.description
+        });
       }
     })
   }
   
-JSONTypeOfEvents : Array<{id: number, name: string}> = [];  
-selectedType : string ='';
 
 }
