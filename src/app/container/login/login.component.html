@@ -1,9 +1,11 @@
-<div>
+<div class="login-div">
     <form (ngSubmit)="Submit()">
-        <h1>Login</h1>
+        <p>Email</p>
         <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Enter your email">
+        <p>Mot de passe</p>
         <input [(ngModel)]="LoginPassword" type="password" name="LoginPassword" placeholder="Enter your password">
-        <button matButton="outlined" type="submit">Login</button>
+        <br/>
+        <button type="submit">Login</button>
     </form>
-
+  <p (click)="redirectToHome()">Retour à l'accueil</p>
 </div>

@@ -1,9 +1,16 @@
-<div class="subscribe-div">
-<form (ngSubmit)="Submit()">
-    <p>Email</p>
-    <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Enter your email">
-    <br/> 
-    <button type="submit">Souscrire</button>
-</form>
-<p (click)="redirectToHome()">Retour à l'accueil</p>
+<div class="container">
+    <!--add an image path : src/app/ressource/academia_icon.png-->
+    <div class="app-logo">
+        <img src="assets/academia_icon.png" alt="Academia">
+        <span>ACADEMIA</span>
+    </div>
+    <div class="subscribe-div">
+        <form (ngSubmit)="Submit()">
+            <p>Email</p>
+            <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Enter your email">
+            <br/> 
+            <button type="submit">Souscrire</button>
+        </form>
+        <p (click)="redirectToHome()">Retour à l'accueil</p>
+    </div>
 </div>
