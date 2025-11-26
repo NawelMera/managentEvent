@@ -55,3 +55,10 @@
     font-weight: bold;
     vertical-align: middle;
 }
+
+.home-events-list {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
