@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { Event } from '@model/event';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
-import { EventService } from 'core/services';
+import { EventService, TypeService } from 'core/services';
 import { FormsModule } from '@angular/forms';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home.component',
-  providers: [EventService],
+  providers: [EventService, TypeService],
   imports: [EventBanner, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -20,8 +20,10 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent {
   events: Event[] = [];
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private typeService: TypeService) {
     this.getEvents();
+    this.getTypeOfEvents();
+    console.log(this.JSONTypeOfEvents);
   }
 
   getEvents() {
@@ -43,24 +45,20 @@ export class HomeComponent {
     })
   }
   
-  JSONTypeOfEvents =[{
-    id: 1,
-    name: "Concert"
-  },
+  getTypeOfEvents()
   {
-    id: 2,
-    name: "Festival"
-  },
-  {
-    id: 3,
-    name: "Spectacle"
-  },
-  {
-    id: 4,
-    name: "Exposition"
+    return this.typeService.getType().subscribe(response => {
+      console.log(response);
+      for (let type of response) {
+        if(!type.id || !type.name) {
+          continue;
+        }
+        this.JSONTypeOfEvents.push({id: type.id, name: type.name});
+      }
+    })
   }
-];
-
+  
+JSONTypeOfEvents : Array<{id: number, name: string}> = [];  
 selectedType : string ='';
 
 }
