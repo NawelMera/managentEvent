@@ -5,13 +5,12 @@
     </div>
     <div class="login-div">
         <form (ngSubmit)="submit()">
-            <p>Email</p>
+            <div>Email</div>
             <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Taper ici">
-            <p>Mot de passe</p>
+            <div>Mot de passe</div>
             <input [(ngModel)]="loginPassword" type="password" name="loginPassword" placeholder="Taper ici">
-            <br/>
-            <button type="submit">Login</button>
+            <button type="submit">Se connecter</button>
         </form>
-    <p class="login-p" (click)="redirectToHome()">Retour à l'accueil</p>
     </div>
+    <p class="login-p" (click)="redirectToHome()">Retour à l'accueil</p>
 </div>
