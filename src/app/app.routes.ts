@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'subscribe', component: SubscribeComponent },
 
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  { path: 'event/update', component: UpdateEventComponent, canActivate: [AuthGuard] },
+  { path: 'event/update/:id', component: UpdateEventComponent, canActivate: [AuthGuard] },
   { path: 'event/create', component: CreateEventComponent, canActivate: [AuthGuard] },
   { path: 'tags', component: TagsComponent, canActivate: [AuthGuard] },
 
