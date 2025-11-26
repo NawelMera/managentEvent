@@ -15,8 +15,6 @@ export class TagsComponent {
   tagInputName = '';
 
   constructor() {
-    console.log('TagsComponent initialized');
-
     // Exemple de données de tags
     this.tags = [
       { id: 1, name: 'Conférence', description: 'Événements de type conférence' },
@@ -26,8 +24,6 @@ export class TagsComponent {
   }
   
   onSubmit() {
-    console.log(this.tagInputName);
-
     this.tags.push({
       id: this.tags[this.tags.length - 1]?.id + 1 || 1,
       name: this.tagInputName,
@@ -38,9 +34,6 @@ export class TagsComponent {
   }
 
   deleteTag(tagToDelete: TypeOfEvent) {
-    console.log('Deleting tag:', tagToDelete);
-    console.log('Current tags before deletion:', this.tags);
     this.tags = this.tags.filter(tag => tag.id !== tagToDelete.id);
-    console.log('Updated tags:', this.tags);
   }
 }
