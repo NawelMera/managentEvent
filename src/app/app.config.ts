@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 
 
 import { routes } from './app.routes';
-import { Configuration } from 'core/api';
+import { Configuration } from 'core/services';
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
