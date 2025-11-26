@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <form class="p-4 w-50 border rounded" (ngSubmit)="createEvent()"> 
+        <div class="mb-3">  
+            <label for="eventName" class="form-label">Nom de l'événement*</label>
+            <input type="text" [(ngModel)]="eventName" class="form-control" id="eventName" placeholder="Entrer le nom de l'événement" name="eventName" required>
+        </div>
+        <div class="mb-3">
+            <label for="eventDate" class="form-label">Date de l'événement*</label>
+            <input type="date" [(ngModel)]="eventDate" class="form-control" id="eventDate" name="eventDate" required>
+        </div>
+        <div class="mb-3">
+            <label for="eventLocation" class="form-label">Description*</label>
+            <textarea [(ngModel)]="eventDescription" class="form-control" id="eventLocation" placeholder="Entrer la description de l'événement" rows="4" name="eventDescription" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="eventType" class="form-label">Type d'événement*</label>
+            <select [(ngModel)]="eventType" class="form-select" id="eventType" name="eventType" required>
+                <option selected>Choisir le type d'événement</option>
+                <option value="conference">Conférence</option>
+                <option value="workshop">Atelier</option>
+                <option value="meetup">Rencontre</option>
+            </select>
+        </div>
+        <button type="submit" class="btn bg-black text-white w-100">Créer l'événement</button>
+    </form>
+</div>

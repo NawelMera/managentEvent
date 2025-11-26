@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { Configuration } from 'core/api';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,8 +14,9 @@ export const appConfig: ApplicationConfig = {
     ,{
       provide: Configuration,
       useFactory: () => new Configuration({
-        basePath: 'http://127.0.0.1:4010/'
+        basePath: 'http://127.0.0.1:4010'
       })
-    }
+    },
+    provideHttpClient()
   ],
 };
