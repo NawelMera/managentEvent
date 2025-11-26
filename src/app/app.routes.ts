@@ -6,6 +6,7 @@ import { SettingsComponent } from 'container/settings/settings.component';
 import { SubscribeComponent } from 'container/subscribe/subscribe.component';
 import { UpdateEventComponent } from 'container/update-event/update-event.component';
 import { CreateEventComponent } from 'container/create-event/create-event.component';
+import { TagsComponent } from '@container/modify-tags/tags.component';
 
 
 
@@ -18,4 +19,5 @@ export const routes: Routes = [
   { path: 'subscribe', component: SubscribeComponent }, 
   { path: 'event/update', component: UpdateEventComponent }, 
   { path: 'event/create', component: CreateEventComponent }, 
+  { path: 'tags', component: TagsComponent },
   ];
