@@ -46,6 +46,19 @@
     padding-left: 0;
 }
 
+.header > .all-events {
+    padding: 0.3vw 1vh;
+    border-radius: 5px;
+    font-size: 2vh;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header > .all-events:hover {
+    background-color: #cfcfcf;
+}
+
+
 .header button {
     height: 4vh;
     min-height: fit-content;
