@@ -2,6 +2,7 @@ import { Component, Injectable } from '@angular/core';
 import { Event } from '@model/event';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
 import { EventService } from 'core/api';
+import { FormsModule } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { EventService } from 'core/api';
 @Component({
   selector: 'app-home.component',
   providers: [EventService],
-  imports: [ EventBanner ],
+  imports: [EventBanner, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -41,4 +42,25 @@ export class HomeComponent {
       }
     })
   }
+  
+  JSONTypeOfEvents =[{
+    id: 1,
+    name: "Concert"
+  },
+  {
+    id: 2,
+    name: "Festival"
+  },
+  {
+    id: 3,
+    name: "Spectacle"
+  },
+  {
+    id: 4,
+    name: "Exposition"
+  }
+];
+
+selectedType : string ='';
+
 }

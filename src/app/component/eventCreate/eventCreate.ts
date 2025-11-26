@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import {Injectable} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TypeOfEvent } from '@model/typeOfEvent';
-import { TypeService } from 'core/api';
-import { EventService } from 'core/api';
-import { Event } from 'core/api/model/event';
+import { TypeService } from 'core/services';
+import { EventService } from 'core/services';
+import { Event } from 'core/services/model/event';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +21,7 @@ export class EventCreate {
   eventName: string = '';
   eventDate: string = '';
   eventDescription: string = '';
-  eventType: TypeOfEvent = {
-    id: 0,
-    name: '',
-    description: ''
-  }
+  eventType: number = 0;
 
   constructor(private eventService: EventService, private typeService: TypeService) {}
 
@@ -37,7 +32,7 @@ export class EventCreate {
       name: this.eventName,
       date: this.eventDate,
       description: this.eventDescription,
-      idType: this.eventType.id
+      idType: this.eventType
     };
 
     console.log('Date selected:', this.eventDate);
