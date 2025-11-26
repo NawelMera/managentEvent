@@ -11,6 +11,7 @@ import { CreateEventComponent } from 'container/create-event/create-event.compon
 
 export const routes: Routes = [ 
   { path: '', component: HomeComponent },  // route par défaut
+  { path: 'home', component: HomeComponent },  // route par défaut
   { path: 'event', component: EventsComponent }, 
   { path: 'login', component: LoginComponent }, 
   { path: 'settings', component: SettingsComponent }, 

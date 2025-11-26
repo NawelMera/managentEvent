@@ -1,1 +1,9 @@
-<p>subscribe.component works!</p>
+<div class="subscribe-div">
+<form (ngSubmit)="Submit()">
+    <p>Email</p>
+    <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Enter your email">
+    <br/> 
+    <button type="submit">Souscrire</button>
+</form>
+<p (click)="redirectToHome()">Retour à l'accueil</p>
+</div>
