@@ -1,15 +1,17 @@
 <div class="tags-page">
-    <div class="tags-add-input">
-        <input type="text" placeholder="Inscrire un nouveau type d'événement">
+    <form class="tags-add-input" (ngSubmit)="onSubmit()">
+        <input type="text" name="tag-name" [(ngModel)]="tagInputName" placeholder="Inscrire un nouveau type d'événement">
         <button class="button-black">Ajouter</button>
-    </div>
+    </form>
     <h2>
         Type d'événements
     </h2>
     <h4>
-        1 résultat(s)
+        {{tags.length}} résultat(s)
     </h4>
     <div class="tags-list">
-        <app-tag-banner/>
+        @for (tag of tags; track tag) {
+            <app-tag-banner  [tag]="tag" (onDelete)="deleteTag($event)"/>
+        }
     </div>
 </div>

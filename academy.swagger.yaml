@@ -430,7 +430,7 @@ components:
           example: 5
         date:
           type: string
-          format: date-time
+          format: date
           example: "2023-10-15T20:00:00Z"
         duration:
           type: string

@@ -19,4 +19,8 @@ export class Header {
   redirectToRegister(){
     this.router.navigate(['subscribe']);
   }
+  redirectToHome() {
+    this.router.navigate(['home']);
+  }
+
 }
