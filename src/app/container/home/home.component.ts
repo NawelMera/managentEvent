@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { Event } from '@model/event';
+import { Event } from 'core/services';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
 import { EventService } from 'core/services';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +35,7 @@ export class HomeComponent {
           id: event.id,
           idUser: event.idUser,
           name: event.name,
-          date: new Date(event.date),
+          date: event.date,
           description: event.description,
           idType: event.idType
         });

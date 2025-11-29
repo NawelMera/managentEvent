@@ -1,26 +1,41 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@service/auth/auth.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-header',
-  imports: [],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
-  constructor( private router: Router, public authService: AuthService) {}
-   logout() {
-    this.authService.logout(); 
+  connexion: boolean = false;
+  constructor(
+    private router: Router,
+  ) {}
+ ngOnInit() {
+    this.connexion = localStorage.getItem('connexion') === 'true';
+
+    window.addEventListener('connexion-change', () => {
+      this.connexion = localStorage.getItem('connexion') === 'true';
+    });
+  }
+
+  logout() {
+    localStorage.setItem('connexion', 'false');
+    window.dispatchEvent(new Event('connexion-change'));
+    this.connexion = false;
     this.router.navigate(['']); 
   }
-  redirectToLogin(){
+
+  redirectToLogin() {   
     this.router.navigate(['login']);
+    
   }
-  redirectToRegister(){
+
+  redirectToRegister() {
     this.router.navigate(['subscribe']);
   }
+
   redirectToHome() {
     this.router.navigate(['home']);
   }
-
 }
