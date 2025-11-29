@@ -1,8 +1,9 @@
 import { Component, Injectable } from '@angular/core';
 import { Event } from 'core/services';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
-import { EventService } from 'core/services';
+import { EventService, TypeService } from 'core/services';
 import { FormsModule } from '@angular/forms';
+import { TypeOfEvent } from '@model/typeOfEvent';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home.component',
-  providers: [EventService],
+  providers: [EventService, TypeService],
   imports: [EventBanner, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -19,9 +20,48 @@ import { FormsModule } from '@angular/forms';
 
 export class HomeComponent {
   events: Event[] = [];
+  shownEvents: Event[] = [];
+  typeOfEvents : TypeOfEvent[] = [];  
 
-  constructor(private eventService: EventService) {
+  searchText: string = '';
+  dateFrom: Date | null = null;
+  dateTo: Date | null = null;
+  searchType: string = "N'importe quel type";
+  
+
+  constructor(private eventService: EventService, private typeService: TypeService) {
     this.getEvents();
+    this.getTypeOfEvents();
+    this.filter()
+  }
+
+  filter() {
+    this.shownEvents = this.events;
+    // console.log(this.dateFrom);
+    // console.log(this.dateTo);
+
+    if (this.searchText.trim() !== '') {
+      this.shownEvents = this.events.filter(event =>
+        event.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        event.description.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+
+    if (this.searchType !== "N'importe quel type") {
+      this.shownEvents = this.shownEvents.filter(event => {
+        const eventType = this.typeOfEvents.find(type => type.id === event.idType);
+        return eventType ? eventType.name === this.searchType : false;
+      });
+    }
+
+    if (this.dateFrom) {
+      const newDateFrom = new Date(this.dateFrom!);
+      this.shownEvents = this.shownEvents.filter(event => event.date >= newDateFrom);
+    }
+    if (this.dateTo) {
+      const newDateTo = new Date(this.dateTo!);
+      this.shownEvents = this.shownEvents.filter(event => event.date <= newDateTo);
+    }
   }
 
   getEvents() {
@@ -43,24 +83,21 @@ export class HomeComponent {
     })
   }
   
-  JSONTypeOfEvents =[{
-    id: 1,
-    name: "Concert"
-  },
+  getTypeOfEvents()
   {
-    id: 2,
-    name: "Festival"
-  },
-  {
-    id: 3,
-    name: "Spectacle"
-  },
-  {
-    id: 4,
-    name: "Exposition"
-  }
-];
+    return this.typeService.getType().subscribe(response => {
+      for (let type of response) {
+        if(!type.id || !type.name || !type.description)
+          continue;
 
-selectedType : string ='';
+        this.typeOfEvents.push({
+          id: type.id, 
+          name: type.name,
+          description: type.description
+        });
+      }
+    })
+  }
+  
 
 }

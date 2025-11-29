@@ -1,22 +1,22 @@
-<div class="container">
+<div class="home-page">
     <div class="home-filter">
         <form>
-            <button>Filtrer</button>
-            <input type="date" name="date" placeholder="Start Date">
-            <input type="date" name="date" placeholder="End Date">
-            <select name="typeEvent">
-                <option selected disabled>Type of Event</option>
-                @for (type of JSONTypeOfEvents; track type.id){
+            <div>Filtrer</div>
+            <div>Start date</div>
+            <input type="date" name="date" [(ngModel)]="dateFrom" placeholder="Start Date" (change)="filter()">
+            <div>End date</div>
+            <input type="date" name="date" [(ngModel)]="dateTo" placeholder="End Date" (change)="filter()">
+            <select name="typeEvent" [(ngModel)]="searchType" (onchange)="filter()">
+                <option selected>N'importe quel type</option>
+                @for (type of typeOfEvents; track type.id){
                     <option>{{type.name}}</option>
                 }
             </select>
         </form>
     </div>
     <div class="home-search">
-        <form>
-            <Input type="text" name="search" placeholder="Rechercher un événement">
-            <img src="assets/search.png"/>
-        </form>
+        <input type="text" placeholder="Rechercher un événement" [(ngModel)]="searchText" (keyup)="filter()"  />
+        <img src="assets/search.png"/>
     </div>
     <div class="home-events">
         <div class="home-events-results">
@@ -24,7 +24,7 @@
             <!-- Nb Resultats (En fonction du back)-->
         </div>
         <div class="home-events-list">
-            @for (event of events; track event) {
+            @for (event of shownEvents; track event) {
                 <app-event-banner [event]="event"/>
             }
         </div>

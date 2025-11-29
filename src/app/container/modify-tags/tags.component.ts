@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { TagBanner } from 'component/tag-banner/tag-banner.component';
 
 import { TypeOfEvent } from '@model/typeOfEvent';
 import { FormsModule } from '@angular/forms';
+import { TypeService } from 'core/services';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-tags.component',
   imports: [TagBanner, FormsModule],
+  providers: [TypeService],
   templateUrl: './tags.component.html',
   styleUrl: './tags.component.scss',
 })
@@ -14,26 +20,38 @@ export class TagsComponent {
   tags: TypeOfEvent[] = [];
   tagInputName = '';
 
-  constructor() {
-    // Exemple de données de tags
-    this.tags = [
-      { id: 1, name: 'Conférence', description: 'Événements de type conférence' },
-      { id: 2, name: 'Atelier', description: 'Événements de type atelier' },
-      { id: 3, name: 'Webinaire', description: 'Événements de type webinaire' },
-    ];
+  constructor(private typeService: TypeService) {
+    this.getTags();
+  }
+
+  getTags() {
+    return this.typeService.getType().subscribe(response => {
+      this.tags = [];
+      for (let type of response) {
+        if(!type.id || !type.name) {
+          continue;
+        }
+        this.tags.push({id: type.id, name: type.name, description: type.description || ''});
+      }
+    })
   }
   
   onSubmit() {
-    this.tags.push({
-      id: this.tags[this.tags.length - 1]?.id + 1 || 1,
-      name: this.tagInputName,
-      description: ''
+    this.typeService.typePost({
+      id: this.tags[this.tags.length - 1].id,
+      name: this.tagInputName
+    }).subscribe(() => {
+      console.log('Tag added successfully');
+      this.getTags();
     });
 
     this.tagInputName = ''; 
   }
 
   deleteTag(tagToDelete: TypeOfEvent) {
-    this.tags = this.tags.filter(tag => tag.id !== tagToDelete.id);
+    this.typeService.typeDelete(tagToDelete.id!).subscribe(() => {
+      console.log('Tag deleted successfully');
+      this.getTags();
+    });
   }
 }
