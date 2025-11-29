@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from './service/auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor( private router: Router) {}
+  connexion: boolean = false;
 
   canActivate: CanActivateFn = () => {
-    if (this.auth.connexion()) {
+     this.connexion = localStorage.getItem('connexion') === 'true';
+    if (this.connexion) {
       return true; // autorisé
     }
     // sinon on redirige

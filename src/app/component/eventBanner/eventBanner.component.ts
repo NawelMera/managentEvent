@@ -1,6 +1,7 @@
 import { Component, Injectable, Input } from "@angular/core";
-import { Event } from "@model/event";
-import { TypeService } from "core/services";
+import { EventService, TypeService , Event } from "core/services";
+import { DatePipe } from '@angular/common';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,24 +10,38 @@ import { TypeService } from "core/services";
 @Component({
   selector: 'app-event-banner',
   providers: [TypeService],
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './eventBanner.component.html',
   styleUrls: ['./eventBanner.component.scss'],
 })
 export class EventBanner {
     @Input({alias: 'event'}) event!: Event;
     typeTag: string = '';
+    connexion: boolean = false;
 
-    constructor(private typeService: TypeService) {
+    constructor(private typeService: TypeService,private eventService: EventService, private router: Router) {
     }
 
     ngOnInit() {
-      this.getTag(this.event.idType);
+      this.getTag(this.event.idType!);
+      this.connexion = localStorage.getItem('connexion') === 'true';
+
+      window.addEventListener('connexion-change', () => {
+        this.connexion = localStorage.getItem('connexion') === 'true';
+      });
     }
 
     getTag(idType: number) {
       return this.typeService.getType(idType).subscribe(response => {
         response[0].name && (this.typeTag = response[0].name);
       });
+    }
+    deleteEvent() {
+      return this.eventService.deleteEvent(this.event.id).subscribe(Response => {
+        window.location.reload();
+      });
+    }
+    updateEvent() {
+     this.router.navigate(['event/update']); 
     }
 }

@@ -3,10 +3,16 @@
         <div>
             {{event.name}}
         </div>
-        <div style="color: gray;">
-            {{event.date.toLocaleDateString()}}
-        </div>
+        
+        @if(connexion) {
+            <img src="assets/update.png" (click)="updateEvent()" alt="">
+            <img src="assets/trash.svg" (click)="deleteEvent()" alt="">
+        }
+
     </div>
+    <div style="color: gray;">
+            {{ event.date | date:'dd/MM/yyyy' }}
+        </div>
     <div class="home-event-description">
         {{event.description}}
     </div>

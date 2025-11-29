@@ -6,7 +6,7 @@
     <div class="all-events" (click)="redirectToHome()">
         Voir tous les événements
     </div>
-    @if(!authService.connexion()){
+    @if(!connexion){
     <div >
         <button class="button-white" (click)="redirectToLogin()"> 
             Se connecter
