@@ -42,6 +42,6 @@ export class EventBanner {
       });
     }
     updateEvent() {
-     this.router.navigate(['event/update']); 
+     this.router.navigate(['event/update/'+this.event.id]); 
     }
 }

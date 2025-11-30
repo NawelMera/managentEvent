@@ -5,6 +5,7 @@
         </div>
         
         @if(connexion) {
+            <!-- mettre dans updateEvent le parametre event.id parsé en Int -->
             <img src="assets/update.png" (click)="updateEvent()" alt="">
             <img src="assets/trash.svg" (click)="deleteEvent()" alt="">
         }

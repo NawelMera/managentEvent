@@ -38,4 +38,12 @@ export class Header {
   redirectToHome() {
     this.router.navigate(['home']);
   }
+
+  redirectToEventCreate() {
+    this.router.navigate(['event/create']);
+  }
+
+  redirectToModifyTags() {
+    this.router.navigate(['tags']);
+  }
 }

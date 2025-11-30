@@ -40,12 +40,12 @@ export class HomeComponent {
     // console.log(this.dateFrom);
     // console.log(this.dateTo);
 
-    if (this.searchText.trim() !== '') {
-      this.shownEvents = this.events.filter(event =>
-        event.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
-        event.description.toLowerCase().includes(this.searchText.toLowerCase())
-      );
-    }
+    // if (this.searchText.trim() !== '') {
+    //   this.shownEvents = this.events.filter(event =>
+    //     event.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+    //     event.description.toLowerCase().includes(this.searchText.toLowerCase())
+    //   );
+    // }
 
     if (this.searchType !== "N'importe quel type") {
       this.shownEvents = this.shownEvents.filter(event => {
@@ -54,14 +54,14 @@ export class HomeComponent {
       });
     }
 
-    if (this.dateFrom) {
-      const newDateFrom = new Date(this.dateFrom!);
-      this.shownEvents = this.shownEvents.filter(event => event.date >= newDateFrom);
-    }
-    if (this.dateTo) {
-      const newDateTo = new Date(this.dateTo!);
-      this.shownEvents = this.shownEvents.filter(event => event.date <= newDateTo);
-    }
+    // if (this.dateFrom) {
+    //   const newDateFrom = new Date(this.dateFrom!);
+    //   this.shownEvents = this.shownEvents.filter(event => event.date >= newDateFrom);
+    // }
+    // if (this.dateTo) {
+    //   const newDateTo = new Date(this.dateTo!);
+    //   this.shownEvents = this.shownEvents.filter(event => event.date <= newDateTo);
+    // }
   }
 
   getEvents() {
