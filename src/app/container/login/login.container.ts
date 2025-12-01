@@ -9,11 +9,11 @@ import { Injectable } from '@angular/core';
 })
 
 @Component({
-  selector: 'app-login.component',
+  selector: 'app-login.container',
   imports: [FormsModule],
   providers: [UserService],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './login.container.html',
+  styleUrls: ['./login.container.scss'],
 })
 
 export class LoginComponent {

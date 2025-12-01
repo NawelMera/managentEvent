@@ -8,11 +8,11 @@ import { Router, ActivatedRoute, Route } from '@angular/router';
 })
 
 @Component({
-  selector: 'app-update-event.component',
+  selector: 'app-update-event.container',
   providers: [EventService, TypeService],
   imports: [FormsModule],
-  templateUrl: './update-event.component.html',
-  styleUrl: './update-event.component.scss',
+  templateUrl: './update-event.container.html',
+  styleUrls: ['./update-event.container.scss'],
 })
 export class UpdateEventComponent implements OnInit {
   eventName: string = '';

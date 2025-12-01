@@ -9,11 +9,11 @@ import { TypeService , Type } from 'core/services';
 })
 
 @Component({
-  selector: 'app-tags.component',
+  selector: 'app-tags.container',
   imports: [TagBanner, FormsModule],
   providers: [TypeService],
-  templateUrl: './tags.component.html',
-  styleUrl: './tags.component.scss',
+  templateUrl: './tags.container.html',
+  styleUrls: ['./tags.container.scss'],
 })
 export class TagsComponent {
   tags: Type[] = [];

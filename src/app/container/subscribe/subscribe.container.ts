@@ -6,10 +6,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Email, EmailService } from 'core/services';
 
 @Component({
-  selector: 'app-subscribe.component',
+  selector: 'app-subscribe.container',
   imports: [FormsModule, MatSlideToggleModule],
-  templateUrl: './subscribe.component.html',
-  styleUrl: './subscribe.component.scss',
+  templateUrl: './subscribe.container.html',
+  styleUrls: ['./subscribe.container.scss'],
 })
 export class SubscribeComponent {
   

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.html',
-  styleUrl: './header.scss',
+  selector: 'app-header-component',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
 export class Header {
   connexion: boolean = false;

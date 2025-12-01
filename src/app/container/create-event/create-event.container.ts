@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 
 @Component({
-  selector: 'app-create-event.component',
+  selector: 'app-create-event.container',
   providers: [EventService, TypeService],
   imports: [FormsModule],
-  templateUrl: './create-event.component.html',
-  styleUrl: './create-event.component.scss',
+  templateUrl: './create-event.container.html',
+  styleUrls: ['./create-event.container.scss'],
 })
 export class CreateEventComponent {
   eventName: string = '';

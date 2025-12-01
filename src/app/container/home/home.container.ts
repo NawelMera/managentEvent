@@ -9,11 +9,11 @@ import { FormsModule } from '@angular/forms';
 })
 
 @Component({
-  selector: 'app-home.component',
+  selector: 'app-home.container',
   providers: [EventService, TypeService],
   imports: [EventBanner, FormsModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './home.container.html',
+  styleUrls: ['./home.container.scss'],
 })
 
 
