@@ -20,11 +20,19 @@ export class LoginComponent {
   constructor(private router: Router, private userService :UserService) {}
   loginPassword: string = "";
   loginEmail: string = "";
+  regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  message: string = "";
   submit(){
     const userData : LoginUserRequest = {
       username: this.loginEmail,
       password: this.loginPassword
     };
+    if(!this.regexEmail.test(this.loginEmail)){
+      this.message = 'Veuillez entrer une adresse email valide.';
+      return;
+    }
+
     this.userService.loginUser(userData).subscribe({
       next: (response) => {
         console.log(response);

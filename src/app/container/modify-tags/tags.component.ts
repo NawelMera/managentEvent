@@ -1,9 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { TagBanner } from 'component/tag-banner/tag-banner.component';
 
-import { TypeOfEvent } from '@model/typeOfEvent';
 import { FormsModule } from '@angular/forms';
-import { TypeService } from 'core/services';
+import { TypeService , Type } from 'core/services';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ import { TypeService } from 'core/services';
   styleUrl: './tags.component.scss',
 })
 export class TagsComponent {
-  tags: TypeOfEvent[] = [];
+  tags: Type[] = [];
   tagInputName = '';
 
   constructor(private typeService: TypeService) {
@@ -48,7 +47,7 @@ export class TagsComponent {
     this.tagInputName = ''; 
   }
 
-  deleteTag(tagToDelete: TypeOfEvent) {
+  deleteTag(tagToDelete: Type) {
     this.typeService.typeDelete(tagToDelete.id!).subscribe(() => {
       console.log('Tag deleted successfully');
       this.getTags();
