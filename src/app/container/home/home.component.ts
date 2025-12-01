@@ -1,9 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { Event } from 'core/services';
 import { EventBanner } from 'component/eventBanner/eventBanner.component';
-import { EventService, TypeService } from 'core/services';
+import { EventService, TypeService, Type } from 'core/services';
 import { FormsModule } from '@angular/forms';
-import { TypeOfEvent } from '@model/typeOfEvent';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ import { TypeOfEvent } from '@model/typeOfEvent';
 export class HomeComponent {
   events: Event[] = [];
   shownEvents: Event[] = [];
-  typeOfEvents : TypeOfEvent[] = [];  
+  typeOfEvents : Type[] = [];  
 
   searchText: string = '';
   dateFrom: Date | null = null;

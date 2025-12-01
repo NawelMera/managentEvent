@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, input, Output, Type } from '@angular/core';
-import { TypeOfEvent } from '@model/typeOfEvent';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
+import { Type } from 'core/services';
 
 
 
@@ -10,8 +10,8 @@ import { TypeOfEvent } from '@model/typeOfEvent';
   styleUrl: './tag-banner.component.scss',
 })
 export class TagBanner {
-  @Input({alias: 'tag'}) tag!: TypeOfEvent;
-  @Output() onDelete = new EventEmitter<TypeOfEvent>();
+  @Input({alias: 'tag'}) tag!: Type;
+  @Output() onDelete = new EventEmitter<Type>();
   
   deleteTag() {
     this.onDelete.emit(this.tag);

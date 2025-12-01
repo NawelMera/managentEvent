@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from 'container/home/home.component';
-import { EventsComponent } from 'container/events/events.component';
 import { LoginComponent } from 'container/login/login.component';
 import { SettingsComponent } from 'container/settings/settings.component';
 import { SubscribeComponent } from 'container/subscribe/subscribe.component';
@@ -15,7 +14,6 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'home', component: HomeComponent },
-  { path: 'event', component: EventsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'subscribe', component: SubscribeComponent },
 

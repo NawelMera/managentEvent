@@ -5,6 +5,10 @@
     </div>
     <div class="login-div">
         <form (ngSubmit)="submit()">
+            @if(message!=""){
+                <p style="color: red;">{{message}}</p>
+            }
+           
             <div>Email</div>
             <input [(ngModel)]="loginEmail" type="email" name="loginEmail" placeholder="Taper ici">
             <div>Mot de passe</div>
