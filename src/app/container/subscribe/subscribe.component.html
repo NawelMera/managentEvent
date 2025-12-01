@@ -5,6 +5,7 @@
     </div>
     <div class="subscribe-div">
         <form (ngSubmit)="Submit()">
+            <p style="color: red;">{{return}}</p>
             <div>Email</div>
             <input [(ngModel)]="subscribeEmail" name="subscribeEmail" type="email"  placeholder="Taper ici">
             <button type="submit">Se souscrire</button>
