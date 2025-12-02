@@ -46,6 +46,11 @@ export class HomeComponent {
     //   );
     // }
 
+    if(this.searchText.trim() !== '') {
+      this.shownEvents = this.shownEvents.filter(e => e.name!.toLowerCase().includes(this.searchText.toLowerCase()) 
+      || e.description!.toLowerCase().includes(this.searchText.toLowerCase()));
+    }
+
     if (this.searchType !== "N'importe quel type") {
       this.shownEvents = this.shownEvents.filter(event => {
         const eventType = this.typeOfEvents.find(type => type.id === event.idType);
