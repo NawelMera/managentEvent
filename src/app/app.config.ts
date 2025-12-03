@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     ,{
       provide: Configuration,
       useFactory: () => new Configuration({
-        basePath: 'http://127.0.0.1:4010'
+        basePath: 'http://localhost:3001'
       })
     },
     provideHttpClient()

@@ -38,7 +38,8 @@ export class TagsComponent {
   onSubmit() {
     this.typeService.typePost({
       id: this.tags[this.tags.length - 1].id,
-      name: this.tagInputName
+      name: this.tagInputName,
+      description: ''
     }).subscribe(() => {
       console.log('Tag added successfully');
       this.getTags();
