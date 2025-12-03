@@ -18,8 +18,6 @@ import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
 import { Type } from '../model/type';
-// @ts-ignore
-import { User } from '../model/user';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -150,14 +148,14 @@ export class TypeService extends BaseService {
     /**
      * Add a new type of event.
      * @endpoint post /type
-     * @param user 
+     * @param type 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public typePost(user?: User, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Array<Type>>;
-    public typePost(user?: User, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Array<Type>>>;
-    public typePost(user?: User, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Array<Type>>>;
-    public typePost(user?: User, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public typePost(type?: Type, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Array<Type>>;
+    public typePost(type?: Type, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Array<Type>>>;
+    public typePost(type?: Type, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Array<Type>>>;
+    public typePost(type?: Type, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -194,7 +192,7 @@ export class TypeService extends BaseService {
         const { basePath, withCredentials } = this.configuration;
         return this.httpClient.request<Array<Type>>('post', `${basePath}${localVarPath}`,
             {
-                body: user,
+                body: type,
                 responseType: <any>responseType_,
                 ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
