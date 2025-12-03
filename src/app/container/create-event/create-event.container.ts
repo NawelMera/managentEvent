@@ -42,6 +42,7 @@ export class CreateEventComponent {
       name: this.eventName,
       date: this.eventDate,
       description: this.eventDescription,
+      lieu: 'random location',
       idType: this.eventType
     };
     

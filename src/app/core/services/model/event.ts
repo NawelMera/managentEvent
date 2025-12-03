@@ -16,6 +16,7 @@ export interface Event {
     idUser?: number;
     date?: string;
     duration?: string;
+    lieu?: string;
     description?: string;
 }
 

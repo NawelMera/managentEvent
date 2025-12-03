@@ -469,6 +469,9 @@ components:
           type: string
           format: time
           example: "02:00:00"
+        lieu:
+          type: string
+          example: "Campus Central Hall"
         description:
           type: string
           example: "Un événement pour tous les étudiants."
