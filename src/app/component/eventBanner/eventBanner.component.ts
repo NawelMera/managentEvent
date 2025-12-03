@@ -37,6 +37,7 @@ export class EventBanner {
       });
     }
     deleteEvent() {
+      console.log('Deleting event with id:', this.event.id);
       return this.eventService.deleteEvent(this.event.id).subscribe(Response => {
         window.location.reload();
       });

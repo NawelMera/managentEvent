@@ -70,14 +70,10 @@ export class HomeComponent {
 
   getEvents() {
     return this.eventService.getEvents().subscribe(response => {
-      console.log(response);
       for (let event of response) {
         if(!event.id || !event.name) {
           continue;
         }
-
-        
-
         this.events.push({
           id: event.id,
           idUser: event.idUser,
@@ -86,8 +82,6 @@ export class HomeComponent {
           description: event.description,
           idType: event.idType
         });
-
-        console.log(this.events);
       }
     })
   }

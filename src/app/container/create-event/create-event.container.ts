@@ -38,13 +38,16 @@ export class CreateEventComponent {
   createEvent() {
     const eventData : Event = {
       id: 0,
-      idUser: 0,
+      idUser: 1,
       name: this.eventName,
       date: this.eventDate,
       description: this.eventDescription,
       lieu: 'random location',
-      idType: this.eventType
+      idType: 1,
+      duration: '2:00:00'
     };
+
+    console.log('Creating event with data:', eventData);
     
     return this.eventService.createEvent(eventData).subscribe(response => {
       console.log('Event created successfully', response);
